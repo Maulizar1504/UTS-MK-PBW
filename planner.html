@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Study Planner - StudyBuddy</title>
+  <link rel="stylesheet" href="planner.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <button onclick="window.location.href='dashboard.html'" class="back-button">⟵</button>
+  <div class="planner-container">
+    <h1>Study Planner</h1>
+    <button onclick="navigateTo('schedule.html')" class="add-btn">Add Schedule</button>
+
+    <div class="calendar-wrapper">
+      <div class="calendar-header">
+        <button id="prevMonth">&lt;</button>
+        <h2 id="monthYear">April 2024</h2>
+        <button id="nextMonth">&gt;</button>
+      </div>
+      <table class="calendar-table">
+        <thead>
+          <tr>
+            <th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
+          </tr>
+        </thead>
+        <tbody id="calendarBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="planner.js"></script>
+</body>
+</html>
