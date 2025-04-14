@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Intro 2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <img src="image2.png" alt="Ilustrasi" class="illustration">
+    <h2>Planner Studi Interaktif</h2>
+    <p class="description">Atur rencana belajar mingguanmu secara visual dan interaktif</p>
+
+    <div class="bottom-nav">
+      <button class="nav-btn" onclick="goToPrev()">←</button>
+      <div class="dots">
+        <span class="dot"></span>
+        <span class="dot active"></span>
+        <span class="dot"></span>
+      </div>
+      <button class="nav-btn" onclick="goToNext()">→</button>
+    </div>
+  </div>
+
+  <script>
+    function goToPrev() {
+      window.location.href = "intro1.html";
+    }
+    function goToNext() {
+      window.location.href = "intro3.html";
+    }
+  </script>
+</body>
+</html>
