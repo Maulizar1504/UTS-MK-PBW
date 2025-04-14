@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StudyBuddy Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Kalnia&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+  <a href="#" id="back-button" class="icon-only">&#8592;</a>
+  <div class="task-manager">
+    <h2>Task Manager</h2>
+    <div class="task-inputs">
+      <input type="text" id="taskName" placeholder="Task name">
+      <input type="date" id="deadline" placeholder="Deadline">
+      <select id="priority">
+        <option value="">Priority</option>
+        <option value="important-urgent">Important & urgent</option>
+        <option value="not-important-urgent">Not important but urgent</option>
+        <option value="important-not-urgent">Important but not urgent</option>
+      </select>
+      <button onclick="addTask()">Add Task</button>
+    </div>
+
+    <div class="task-list" id="taskList">
+      <!-- Task items will be added here -->
+    </div>
+
+    <div class="task-summary" id="taskSummary">
+      <!-- Task summary here -->
+    </div>
+  </div>
+  <script src="task.js"></script>
+</body>
+</html>
