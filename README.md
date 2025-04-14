@@ -24,7 +24,6 @@ Fitur To-Do List yang memungkinkan pengguna:
 - Tugas selesai.
 ### 🔹 Study Planner
 Pengguna dapat merencanakan jadwal belajar dengan memilih:
-- Tanggal
 - Hari
 - Waktu
 - Mata pelajaran  
