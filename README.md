@@ -33,27 +33,18 @@ Halaman profil dengan tampilan foto profil di tengah layar. Pengguna bisa:
 - Melihat dan mengedit informasi profil.
 - Mengedit langsung tanpa keluar dari aplikasi (tanpa reload).
 
-
-## 🛠 Teknologi yang Digunakan
-- **HTML5** – Struktur halaman.
-- **CSS3** – Styling responsif dan menarik.
-- **TailwindCSS-like styling** – Dengan class utility untuk mempercepat desain.
-- **JavaScript (Vanilla)** – Menangani interaksi dan logika antar halaman.
-
-## 🧭 Alur Navigasi
-Di dalam `beranda.html`, terdapat navigasi untuk:
-- Beranda
-- Daftar Tugas
-- Study Planner
-- Profil
-
-
-## 📁 Struktur File
-📁 StudyBuddy/ ├── splash.html # Halaman pembuka ├── onboarding.html # Halaman onboarding (3 slide) ├── login.html # Halaman login ├── beranda.html # Halaman utama (dashboard dan semua fitur) ├── style.css # Styling utama (dark mode, font Orbitron, dll) ├── script.js # Logika JavaScript untuk fitur interaktif └── README.md # Dokumentasi aplikasi
+📁 StudyBuddy/
+├── splash.html           # Halaman pembuka dengan logo StudyBuddy dan animasi ringan
+├── onboarding.html       # Halaman onboarding terdiri dari 3 slide pengenalan fitur
+├── login.html            # Halaman login akun dengan form email dan password
+├── beranda.html          # Halaman utama dashboard berisi fitur task, planner, profil, dll
+├── style.css             # Gabungan seluruh styling dalam mode gelap dengan aksen hijau neon (#00ff00) dan font Orbitron
+├── script.js             # Gabungan seluruh logika JavaScript interaktif: navigasi, planner, task manager, dsb
+├── logo.png              # Logo utama StudyBuddy
+├── logo2.png             # Variasi lain dari logo
+├── image1.png            # Gambar onboarding slide 1
+├── image2.png            # Gambar onboarding slide 2
+├── image3.png            # Gambar onboarding slide 3
+└── README.md             # Dokumentasi penggunaan dan deskripsi aplikasi (belum dibuat, opsional)
 
 
-## 🎨 Desain dan Tema
-- **Tema**: Dark Mode (gelap)
-- **Warna Aksen**: Neon Hijau `#00ff00`
-- **Font Utama**: Orbitron (gaya futuristik)
-- **Tata Letak**: Responsif, minimalis, dan mudah dipahami
