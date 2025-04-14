@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Intro 1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <img src="image1.png" alt="Ilustrasi" class="illustration">
+    <h2>Kelola Tugas dengan Mudah</h2>
+    <p class="description">Tambahkan, tandai selesai, dan pantau semua tugas kuliahmu</p>
+
+    <div class="bottom-nav">
+      <button class="nav-btn" onclick="goToPrev()" disabled>←</button>
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+      <button class="nav-btn" onclick="goToNext()">→</button>
+    </div>
+  </div>
+
+  <script>
+    function goToNext() {
+      window.location.href = "intro2.html";
+    }
+  </script>
+</body>
+</html>
