@@ -21,9 +21,7 @@ Fitur To-Do List yang memungkinkan pengguna:
 - Menandai tugas sebagai selesai (dengan pop-up konfirmasi).
 - Mengedit tugas.
 - Menghapus tugas.
-- Tugas selesai otomatis berpindah ke **Riwayat Tugas**.
-### 🔹 Riwayat Tugas
-Menampilkan daftar tugas-tugas yang telah ditandai selesai oleh pengguna. Memudahkan pelacakan progres belajar.
+- Tugas selesai.
 ### 🔹 Study Planner
 Pengguna dapat merencanakan jadwal belajar dengan memilih:
 - Tanggal
@@ -47,7 +45,6 @@ Halaman profil dengan tampilan foto profil di tengah layar. Pengguna bisa:
 Di dalam `beranda.html`, terdapat navigasi untuk:
 - Beranda
 - Daftar Tugas
-- Riwayat Tugas
 - Study Planner
 - Profil
 
