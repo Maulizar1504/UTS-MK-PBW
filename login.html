@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StudyBuddy Login</title>
+  <link rel="stylesheet" href="login.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Kalnia:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="logo-title">
+        <img src="logo2.png" alt="Logo Buku" class="logo"/>
+        <h1 class="kalnia-font">StudyBuddy</h1>
+      </div>
+      <p class="subtitle kalnia-font">Belajar Lebih Teratur, Hidup Lebih Tenang</p>      
+
+    <form class="form" action="dashboard.html" method="get">
+      <div class="input-group">
+        <i class="fa fa-user icon"></i>
+        <input type="text" id="username" name="username" placeholder="Username" required />
+      </div>
+      <div class="input-group">
+        <i class="fa fa-lock icon"></i>
+        <input type="password" id="password" name="password" placeholder="Password" required />
+        <i class="fa fa-eye icon eye-icon"></i>
+      </div>
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+  </div>
+  <script>
+    const eyeIcon = document.querySelector('.eye-icon');
+    const passwordInput = document.querySelector('input[type="password"]');
+  
+    eyeIcon.addEventListener('click', () => {
+      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+      eyeIcon.classList.toggle('fa-eye-slash');
+    });
+  </script>  
+</body>
+</html>
