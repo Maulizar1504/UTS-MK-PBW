@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - StudyBuddy</title>
+  <link rel="stylesheet" href="dashboard.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>StudyBuddy</h2>
+      <ul>
+        <li onclick="navigateTo('dashboard.html')"><i class="fa fa-home"></i> Beranda</li>
+        <li onclick="navigateTo('task.html')"><i class="fa fa-check-circle"></i> Riwayat Tugas</li>
+        <li onclick="navigateTo('planner.html')"><i class="fa fa-clock"></i> Study Planner</li>
+        <li onclick="navigateTo('profile.html')"><i class="fa fa-user"></i> Profil</li>
+      </ul>
+    </aside>
+
+    <main class="main">
+      <h1 id="welcome"></h1>
+      <!-- Teks sambutan -->
+<h2 id="motivasi" class="animated-text">
+  <span class="highlight">Mulai kelola tugas, rencana belajar,</span><br>
+  <span class="highlight">dan produktivitasmu sekarang!</span>
+</h2>
+
+<!-- Rekomendasi Video -->
+<section class="video-recommendation">
+  <h2>Rekomendasi Video Untukmu</h2>
+  <div class="video-grid">
+    <a href="https://youtu.be/p3GkTO7t3rU?si=7pKMFX_xa_A3Fs8R" target="_blank">
+      <img src="https://img.youtube.com/vi/p3GkTO7t3rU/maxresdefault.jpg" alt="Video 1">
+      <p>Learning Tips - Rahasia Hobi Belajar</p>
+    </a>
+    <a href="https://youtu.be/mNBmG24djoY?si=9tFzK6kDQe1klFTe" target="_blank">
+      <img src="https://img.youtube.com/vi/mNBmG24djoY/maxresdefault.jpg" alt="Video 2">
+      <p>Pomodoro Technique Explained</p>
+    </a>
+    <a href="https://youtu.be/oPVte6aMprI?si=VBhHW0oFsbILA6Ue" target="_blank">
+      <img src="https://img.youtube.com/vi/oPVte6aMprI/maxresdefault.jpg" alt="Video 3">
+      <p>Focus Music for Deep Study</p>
+    </a>
+    <a href="https://youtu.be/pUnU07e81GA?si=OFoS1XLbGLiV65kx" target="_blank">
+      <img src="https://img.youtube.com/vi/pUnU07e81GA/maxresdefault.jpg" alt="Video 4">
+      <p>Quick Boost - Study Reminder</p>
+    </a>
+  </div>
+</section>
+
+  
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
