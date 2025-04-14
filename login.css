@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #073b61;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  .logo-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .logo {
+    width: 120px;
+    height: auto;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin: 0;
+    text-shadow: 1px 1px 2px #000;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .input-group {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px 40px 10px 40px;
+    border-radius: 8px;
+    border: none;
+    background: #ddd;
+    font-size: 14px;
+  }
+  
+  .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    pointer-events: none;
+  }
+  
+  .input-group .fa-user,
+  .input-group .fa-lock {
+    left: 12px;
+  }
+  
+  .input-group .eye-icon {
+    right: 15px;
+    pointer-events: auto;
+    cursor: pointer;
+  }  
+  
+  .login-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    width: 160px;
+    background: #7da3c5;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .login-btn:hover {
+    background-color: #5b8ab0;
+  }
+  
+  .signup-text {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  
+  .signup-text a {
+    color: #3ab7ff;
+    text-decoration: none;
+  }
+ 
+  .kalnia-font {
+    font-family: 'Kalnia', serif;
+  }
+  
