@@ -1,0 +1,426 @@
+<!DOCTYPE html> 
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beranda - StudyBuddy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Source Code Pro', monospace;
+      background-color: rgb(0, 0, 0);
+      color: #f1ecfa;
+      margin: 0;
+    }
+    nav {
+      background-color: #000;
+      border-bottom: 2px solid #f5f9f5;
+    }
+    nav ul {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+    }
+    nav li {
+      list-style: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    nav li:hover {
+      text-decoration: underline;
+    }
+    .content-section {
+      display: none;
+      padding: 20px;
+    }
+    .active {
+      display: block;
+    }
+    .completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+    .checkmark {
+      margin-right: 8px;
+      color: #f7f9f7;
+    }
+    .btn {
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      margin: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li onclick="showSection('beranda')">Beranda</li>
+      <li onclick="showSection('tugas')">Daftar Tugas</li>
+      <li onclick="showSection('planner')">Study Planner</li>
+      <li onclick="showSection('profil')">Profil</li>
+    </ul>
+  </nav>
+
+<!-- Beranda -->
+<div id="beranda" class="content-section active">
+    <h1 class="text-xl font-semibold mb-2">Video Pembelajaran Mahasiswa</h1>
+    <div class="overflow-x-auto">
+      <table class="table-auto w-full border border-green-500 text-left">
+        <thead>
+          <tr class="bg-green-1000 text-white">
+            <th class="px-4 py-2 border border-green-500">Judul</th>
+            <th class="px-4 py-2 border border-green-500">Deskripsi</th>
+            <th class="px-4 py-2 border border-green-500">Tonton</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="px-4 py-2 border border-green-500">Canva Berbisnis</td>
+            <td class="px-4 py-2 border border-green-500">Produk Digital Canva Terpopuler Paling Banyak Dicari.</td>
+            <td class="px-4 py-2 border border-green-500">
+              <a href="https://www.youtube.com/watch?v=n-9Yu1z4UVg" target="_blank" class="text-green-300 hover:underline">Lihat Video</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 border border-green-500">Musik</td>
+            <td class="px-4 py-2 border border-green-500">lagu viral 2025.</td>
+            <td class="px-4 py-2 border border-green-500">
+              <a href="https://www.youtube.com/watch?v=2e0BMACvymo" target="_blank" class="text-green-300 hover:underline">Lihat Video</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 border border-green-500">Figma</td>
+            <td class="px-4 py-2 border border-green-500">5 FigJam Widgets that boost student voice.</td>
+            <td class="px-4 py-2 border border-green-500">
+              <a href="https://www.youtube.com/watch?v=54CgEpT62LU" target="_blank" class="text-green-300 hover:underline">Lihat Video</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 border border-green-500">Prototyping Tutorial</td>
+            <td class="px-4 py-2 border border-green-500">3D Carousel in Figma Using Smart Animate.</td>
+            <td class="px-4 py-2 border border-green-500">
+              <a href="https://www.youtube.com/watch?v=xgk5N4rCJIw" target="_blank" class="text-green-300 hover:underline">Lihat Video</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 border border-green-500">Memasak</td>
+            <td class="px-4 py-2 border border-green-500">Bahan Dasar Cuma Pakai Telur.</td>
+            <td class="px-4 py-2 border border-green-500">
+              <a href="https://www.youtube.com/shorts/5_TyG9pAYNY" target="_blank" class="text-green-300 hover:underline">Lihat Video</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  
+<!-- Daftar Tugas -->
+<div id="tugas" class="content-section">
+  <button onclick="showSection('beranda')" class="mb-4 text-green-400 hover:underline" >&larr;</button>
+  <h2 class="text-xl font-bold mb-4">Daftar Tugas</h2>
+
+  <div class="flex flex-col items-center mb-4">
+    <input id="taskInput" type="text" placeholder="Tambahkan tugas" class="border p-2 rounded text-black w-full md:w-2/3 mb-2">
+    <button onclick="addTask()" class="bg-green-600 text-white px-4 py-2 rounded">Tambah</button>
+  </div>
+
+  <div id="taskList" class="mt-4 space-y-2"></div>
+</div>
+
+<style>
+  /* Hapus semua garis coret */
+  .completed .task-text {
+    color: gray;
+    /* text-decoration: none; */ /* coretan dimatikan */
+  }
+
+  /* Jangan coret ikon checklist */
+  .check-icon {
+    color: white;
+    opacity: 1;
+  }
+
+  .completed .check-icon {
+    color: white;
+    opacity: 1;
+  }
+</style>
+
+<script>
+  function addTask() {
+    const taskInput = document.getElementById("taskInput");
+    const taskText = taskInput.value.trim();
+    if (taskText === "") return;
+
+    const taskItem = document.createElement("div");
+    taskItem.className = "task-item flex items-center justify-between p-2 border border-green-500 rounded";
+
+    taskItem.innerHTML = `
+      <div class="flex items-center space-x-2">
+        <span class="check-icon text-white">✔</span>
+        <span class="task-text">${taskText}</span>
+      </div>
+      <div class="space-x-2">
+        <button onclick="editTask(this)" class="bg-yellow-400 text-black px-2 py-1 rounded">Edit</button>
+        <button onclick="completeTask(this)" class="bg-green-600 text-white px-2 py-1 rounded">Selesai</button>
+        <button onclick="deleteTask(this)" class="bg-red-600 text-white px-2 py-1 rounded">Hapus</button>
+      </div>
+    `;
+
+    document.getElementById("taskList").appendChild(taskItem);
+    taskInput.value = "";
+  }
+
+  function editTask(button) {
+    const taskItem = button.closest(".task-item");
+    const taskText = taskItem.querySelector(".task-text");
+    const newText = prompt("Edit tugas:", taskText.textContent);
+    if (newText !== null && newText.trim() !== "") {
+      taskText.textContent = newText.trim();
+    }
+  }
+
+  function completeTask(button) {
+    const taskItem = button.closest(".task-item");
+    taskItem.classList.toggle("completed");
+  }
+
+  function deleteTask(button) {
+    const taskItem = button.closest(".task-item");
+    taskItem.remove();
+  }
+</script>
+
+ <!-- Study Planner -->
+<div id="planner" class="content-section">
+  <a href="#" onclick="showSection('beranda')" class="text-green-400 hover:underline mb-4 inline-block">← </a>
+  <h1 class="text-2xl font-bold mb-4 text-white-500">Study Planner</h1>
+  <p class="mb-4">Rencana belajarmu:</p>
+
+  <div class="flex flex-col items-center space-y-4 max-w-md mx-auto">
+    <input id="tanggal" type="date" class="w-full p-2 rounded bg-white text-black" required>
+    <select id="hari" class="w-full p-2 rounded bg-white text-black" required>
+      <option value="">Pilih Hari</option>
+      <option>Senin</option>
+      <option>Selasa</option>
+      <option>Rabu</option>
+      <option>Kamis</option>
+      <option>Jumat</option>
+      <option>Sabtu</option>
+      <option>Minggu</option>
+    </select>
+    <input id="waktu" type="time" class="w-full p-2 rounded bg-white text-black" required>
+    <input id="mapel" type="text" placeholder="Mata Pelajaran" class="w-full p-2 rounded bg-white text-black" required>
+
+    <button onclick="tambahRoster()" class="bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded">
+      Tambah Rencana
+    </button>
+  </div>
+
+  <div class="text-l font- mb-4 text-white-500">
+    <h1 class="text-l font- mb-2 text-white-400">Daftar Rencana Belajar:</h1>
+    <ul id="daftarRoster" class="list-disc pl-6 text-green-200 space-y-2"></ul>
+  </div>
+</div>
+
+
+  <!-- Profil -->
+  <div id="profil" class="content-section">
+    <button onclick="showSection('beranda')" class="mb-4 text-green-400 hover:underline">&larr;</button>
+    <h2 class="text-2xl font-bold text-center mb-6">My Profile</h2>
+    <div class="flex flex-col items-center space-y-4">
+      <img src="profile.jpg" alt="Foto Profil" class="rounded-full border-4 border-black-9000 w-25 h-25">
+      <div class="text-center">
+        <p id="username" class="text-xl font-bold text-white-400">Pelajar Cerdas</p>
+        <button onclick="editUsername()" class="bg-green-500 hover:bg-green-600 text-black px-4 py-1 mt-1 rounded-md font-bold">Edit Profile</button>
+      </div>
+      <div class="w-full max-w-xs space-y-3 mt-6">
+        <button onclick="resetPassword()" class="w-full flex items-center justify-between bg-gray-800 hover:bg-gray-700 text-white-400 px-4 py-2 rounded-md">
+          <span>🔁 Reset Password</span> <span>›</span>
+        </button>
+        <button onclick="deleteAccount()" class="w-full flex items-center justify-between bg-gray-800 hover:bg-gray-700 text-white-400 px-4 py-2 rounded-md">
+          <span>🔒 Delete Account</span> <span>›</span>
+        </button>
+        <button onclick="logOut()" class="w-full flex items-center justify-between bg-gray-800 hover:bg-gray-700 text-white-400 px-4 py-2 rounded-md">
+          <span>🚪 Log Out</span> <span>›</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Edit Tugas -->
+  <div id="editModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50">
+    <div class="bg-white p-4 rounded shadow-md text-black w-80">
+      <h3 class="font-bold mb-2">Edit Tugas</h3>
+      <input id="editInput" type="text" class="w-full p-2 border rounded mb-4" />
+      <div class="flex justify-end space-x-2">
+        <button onclick="closeEditModal()" class="bg-gray-400 px-4 py-1 rounded">Batal</button>
+        <button onclick="saveEdit()" class="bg-green-500 px-4 py-1 rounded text-white">Simpan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Konfirmasi -->
+  <div id="confirmModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50">
+    <div class="bg-white p-4 rounded shadow-md text-black w-80">
+      <p id="confirmText" class="mb-4">Yakin?</p>
+      <div class="flex justify-end space-x-2">
+        <button onclick="closeConfirm()" class="bg-gray-400 px-4 py-1 rounded">Batal</button>
+        <button id="confirmBtn" class="bg-red-600 text-white px-4 py-1 rounded">Ya</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+  function showSection(sectionId) {
+    document.querySelectorAll('.content-section').forEach(section => {
+      section.classList.remove('active');
+    });
+    document.getElementById(sectionId).classList.add('active');
+  }
+
+  let currentSpanToEdit = null;
+
+  function openEditModal(span) {
+    currentSpanToEdit = span;
+    const currentText = span.textContent.replace("✔").trim();
+    document.getElementById('editInput').value = currentText;
+    document.getElementById('editModal').classList.remove('hidden');
+  }
+
+  function closeEditModal() {
+    document.getElementById('editModal').classList.add('hidden');
+    currentSpanToEdit = null;
+  }
+
+  function saveEdit() {
+    const newText = document.getElementById('editInput').value.trim();
+    if (newText && currentSpanToEdit) {
+      currentSpanToEdit.innerHTML = `<span class="checkmark hidden">✔</span> ${newText}`;
+    }
+    closeEditModal();
+  }
+
+  function addTask() {
+    const input = document.getElementById('taskInput');
+    const taskText = input.value.trim();
+    if (!taskText) return;
+
+    const taskList = document.getElementById('taskList');
+
+    const taskDiv = document.createElement('div');
+    taskDiv.className = 'flex justify-between items-center border border-green-500 p-2 rounded';
+
+    const span = document.createElement('span');
+    span.innerHTML = `<span class="checkmark hidden">✔</span> ${taskText}`;
+
+    const buttons = document.createElement('div');
+
+    const editBtn = document.createElement('button');
+    editBtn.textContent = 'Edit';
+    editBtn.className = 'btn bg-yellow-400 text-black';
+    editBtn.onclick = () => openEditModal(span);
+
+    const selesaiBtn = document.createElement('button');
+    selesaiBtn.textContent = 'Selesai';
+    selesaiBtn.className = 'btn bg-green-500 text-black';
+    selesaiBtn.onclick = () => {
+      if (!span.classList.contains('completed')) {
+        span.classList.add('completed');
+        span.querySelector('.checkmark').classList.remove('hidden');
+        logRiwayat(taskText);
+      }
+    };
+
+    const hapusBtn = document.createElement('button');
+    hapusBtn.textContent = 'Hapus';
+    hapusBtn.className = 'btn bg-red-600 text-white';
+    hapusBtn.onclick = () => taskDiv.remove();
+
+    buttons.appendChild(editBtn);
+    buttons.appendChild(selesaiBtn);
+    buttons.appendChild(hapusBtn);
+    taskDiv.appendChild(span);
+    taskDiv.appendChild(buttons);
+    taskList.appendChild(taskDiv);
+
+    input.value = "";
+  }
+
+
+function tambahRoster() {
+  const tanggal = document.getElementById('tanggal').value;
+  const hari = document.getElementById('hari').value;
+  const waktu = document.getElementById('waktu').value;
+  const mapel = document.getElementById('mapel').value;
+  if (tanggal && hari && waktu && mapel) {
+    const daftar = document.getElementById('daftarRoster');
+    const item = document.createElement('li');
+    item.textContent = `${tanggal} --> ${hari} --> ${waktu} --> ${mapel}`;
+    daftar.appendChild(item);
+
+    // Reset input setelah ditambahkan
+    document.getElementById('tanggal').value = '';
+    document.getElementById('hari').value = '';
+    document.getElementById('waktu').value = '';
+    document.getElementById('mapel').value = '';
+  } else {
+    alert("Lengkapi semua data terlebih dahulu!");
+  }
+}
+
+  function editUsername() {
+    const current = document.getElementById("username").textContent;
+    const newName = prompt("Ubah nama profil:", current);
+    if (newName && newName.trim() !== "") {
+      document.getElementById("username").textContent = newName.trim();
+    }
+  }
+
+  function resetPassword() {
+    alert("Fitur reset password belum tersedia karena tidak terhubung ke sistem backend.");
+  }
+
+  function deleteAccount() {
+    showConfirmModal("Apakah kamu yakin ingin menghapus akun ini?", () => {
+      alert("Akun telah dihapus. (simulasi)");
+      // Di sini seharusnya proses penghapusan akun ke server dilakukan
+    });
+  }
+
+  function logOut() {
+    showConfirmModal("Apakah kamu yakin ingin keluar?", () => {
+      alert("Kamu telah logout. (simulasi)");
+      // Redirect atau hapus session local di sini jika ada
+    });
+  }
+
+  function showConfirmModal(message, onConfirm) {
+    document.getElementById('confirmText').textContent = message;
+    const modal = document.getElementById('confirmModal');
+    const confirmBtn = document.getElementById('confirmBtn');
+
+    // Hapus event listener sebelumnya
+    const newConfirmBtn = confirmBtn.cloneNode(true);
+    confirmBtn.parentNode.replaceChild(newConfirmBtn, confirmBtn);
+
+    newConfirmBtn.textContent = "Ya";
+    newConfirmBtn.onclick = () => {
+      closeConfirm();
+      onConfirm();
+    };
+
+    modal.classList.remove('hidden');
+  }
+
+  function closeConfirm() {
+    document.getElementById('confirmModal').classList.add('hidden');
+  }
+</script>
+
+</body>
+</html>
